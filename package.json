@@ -1,0 +1,28 @@
+{
+  "name": "ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-albaaperez",
+  "version": "1.0.0",
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/7bX30zK4)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "c8 npm test && c8 report --reporter=lcov",
+    "start": "tsc-watch --onSuccess \"node dist/index.js\"",
+    "doc": "typedoc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.3.14",
+    "@types/mocha": "^10.0.6",
+    "c8": "^9.1.0",
+    "chai": "^4.4.1",
+    "coveralls": "^3.1.1",
+    "mocha": "^10.4.0",
+    "nyc": "^15.1.0",
+    "ts-node": "^10.9.2",
+    "tsc-watch": "^6.2.0",
+    "typedoc": "^0.25.12"
+  }
+}
