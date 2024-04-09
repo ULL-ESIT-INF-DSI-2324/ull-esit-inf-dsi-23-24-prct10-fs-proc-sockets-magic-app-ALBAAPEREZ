@@ -1,0 +1,10 @@
+{
+  "id": 2,
+  "name": "Test Card 2",
+  "manaCost": 3,
+  "color": "Verde",
+  "cardType": "Artefacto",
+  "rarity": "Rara",
+  "rulesText": "Test rules 2",
+  "marketValue": 20
+}

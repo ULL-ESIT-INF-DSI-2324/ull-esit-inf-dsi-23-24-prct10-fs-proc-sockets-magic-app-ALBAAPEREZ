@@ -26,7 +26,7 @@ export class FileManager {
    * @param username username: string - Nombre de usuario
    */
   constructor(private username: string) {
-    this.userDir = `./src/MAGICAPP/users/${username}`;
+    this.userDir = `./src/EJERCICIO/users/${username}`;
   }
   
   /**

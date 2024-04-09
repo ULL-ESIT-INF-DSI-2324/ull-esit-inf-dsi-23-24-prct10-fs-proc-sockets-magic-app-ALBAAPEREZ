@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "name": "Test Card",
+  "manaCost": 2,
+  "color": "Azul",
+  "cardType": "Criatura",
+  "rarity": "Comun",
+  "rulesText": "Test rules",
+  "marketValue": 10
+}
