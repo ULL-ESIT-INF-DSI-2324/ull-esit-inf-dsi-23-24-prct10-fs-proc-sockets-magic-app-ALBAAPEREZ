@@ -5,7 +5,6 @@ import { EventEmitter } from 'events';
  * Posee un constructor
  */
 export class EventEmitterSocket extends EventEmitter {
-
   /**
    * Constructor de la clase
    * @param connection - instancia de eventmitter que representa la conexion
