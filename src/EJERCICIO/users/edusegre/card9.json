@@ -1,0 +1,12 @@
+{
+  "id": 9,
+  "name": "Unicornio",
+  "manaCost": 200,
+  "color": "Amarillo",
+  "cardType": "Criatura",
+  "rarity": "Mítica",
+  "rulesText": "si",
+  "power": [],
+  "toughness": [],
+  "marketValue": 1000
+}

@@ -60,6 +60,28 @@ describe("Asynchronous function addCard tests", () => {
       done();
     });
   });
+
+  it('should return an error if the card already exists in the collection', (done) => {
+    const testCard: Card = {
+      id: 1,
+      name: "Test Card",
+      manaCost: 5, 
+      color: Color.Blanco,
+      cardType: LineType.Criatura,
+      rarity: Rarity.Rara,
+      rulesText: "Texto de reglas de la carta.",
+      marketValue: 10.0
+    };
+    const collection: Card[] = [testCard];
+    const fileManager = {
+      getFilePath: () => "fake/filepath"
+    };
+    addCard.call({ collection, fileManager }, testCard, (error: Error | null, message?: string) => {
+      expect(message).to.equal(`La carta con ID ${testCard.id} ya existe en la colección.`);
+      done();
+    });
+  });
+  
 });
 
 // PRUEBAS UPDATECARD
@@ -163,6 +185,27 @@ describe("Asynchronous function updateCard tests", () => {
       // Llamamos a la función updateCard con el contexto adecuado y pasamos la colección
       updateCard.call({ collection, fileManager }, testCard, (error: Error | null, message?: string) => {
         expect(error).to.be.null;
+        expect(message).to.equal(`La carta con ID ${testCard.id} no existe en la colección.`);
+        done();
+      });
+    });
+
+    it('should return an error if the card does not exist in the collection', (done) => {
+      const testCard: Card = {
+        id: 1,
+        name: "Test Card",
+        manaCost: 5, 
+        color: Color.Blanco,
+        cardType: LineType.Criatura,
+        rarity: Rarity.Rara,
+        rulesText: "Texto de reglas de la carta.",
+        marketValue: 10.0
+      };
+      const collection: Card[] = [];
+      const fileManager = {
+        getFilePath: () => "fake/filepath"
+      };
+      updateCard.call({ collection, fileManager }, testCard, (error: Error | null, message?: string) => {
         expect(message).to.equal(`La carta con ID ${testCard.id} no existe en la colección.`);
         done();
       });

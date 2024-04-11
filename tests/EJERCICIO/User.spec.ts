@@ -291,6 +291,14 @@ describe('CardCollection', () => {
       // Restaura la función console.log
       logMock.restore();
     });
-   
+
+    // si es "Planeswalker" debería mostrar la lealtad
+    it('should display the loyalty if the card is a Planeswalker', () => {
+      const logMock = sinon.spy(console, 'log');
+      cardCollection.readCard(planeswalkerCard.id);
+      expect(logMock.calledWith(chalk.bold.italic(`Lealtad: ${planeswalkerCard.loyalty}`))).to.be.false;
+      logMock.restore();
+    });
+
   });
 });
