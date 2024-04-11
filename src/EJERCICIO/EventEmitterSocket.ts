@@ -16,9 +16,17 @@ export class EventEmitterSocket extends EventEmitter {
    * @param connection - instancia de eventmitter que representa la conexion
    */
   constructor(connection: EventEmitter) {
+    // Llamar al constructor de la clase padre
     super();
     let buffer = '';
     // cuando se reciben datos
+    /**
+     * Escuchar el evento 'data' para gestionar los datos recibidos
+     * Emite un evento 'request' cuando se recibe un mensaje completo
+     * @event data - evento que se emite cuando se reciben datos
+     * @param dataChunk - datos recibidos
+     * @function JSON.parse - metodo de JSON que convierte una cadena JSON en un objeto
+     */
     connection.on('data', (dataChunk) => {
       buffer += dataChunk;
       // si incluye CLOSE se recibio el mensjae completo
@@ -27,6 +35,11 @@ export class EventEmitterSocket extends EventEmitter {
       }
     });
     // Cuando la conexion se cierra
+    /**
+     * Escuchar el evento 'close' para gestionar la desconexión del cliente
+     * Emite un evento 'close' cuando la conexión se cierra
+     * @event close - evento que se emite cuando la conexión se cierra
+     */
     connection.on('close', () => {
       this.emit('close');
     });
