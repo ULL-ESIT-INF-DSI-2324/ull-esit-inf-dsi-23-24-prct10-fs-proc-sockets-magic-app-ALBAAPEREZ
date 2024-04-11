@@ -17,13 +17,13 @@ export class EventEmitterSocket extends EventEmitter {
    */
   constructor(connection: EventEmitter) {
     super();
-    let wholeData = '';
+    let buffer = '';
     // cuando se reciben datos
     connection.on('data', (dataChunk) => {
-      wholeData += dataChunk;
+      buffer += dataChunk;
       // si incluye CLOSE se recibio el mensjae completo
-      if (wholeData.includes('CLOSED"}')) {
-        this.emit('request', JSON.parse(wholeData), connection);
+      if (buffer.includes('CLOSED"}')) {
+        this.emit('request', JSON.parse(buffer), connection);
       }
     });
     // Cuando la conexion se cierra
